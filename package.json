@@ -1,0 +1,25 @@
+{
+  "name": "my-presonal-blog",
+  "version": "1.0.0",
+  "description": "This is personal blog of Viswesvar Sekar",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viswesvar/personal-blog.git"
+  },
+  "keywords": [
+    "PB"
+  ],
+  "author": "Viswesvar Sekar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viswesvar/personal-blog/issues"
+  },
+  "homepage": "https://github.com/viswesvar/personal-blog#readme",
+  "devDependencies": {
+    "localhost": "^0.2.3"
+  }
+}

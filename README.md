@@ -1,3 +1,7 @@
 # personal-blog
 - Please tap this link to view
-http://viswesvar-my-webpage.7e14.starter-us-west-2.openshiftapps.com/ 
+https://viswesvar-blog.herokuapp.com/
+
+Since there is no SSL certificate, in order to view the web page please follow the below steps:
+- Click on the red shield icon on the url.
+- Click trust the script and click ok 

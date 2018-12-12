@@ -12,21 +12,21 @@ $(document).ready(function(){
 			
 			// EDIT THIS SECTION IF DIFFERENT FORM ELEMENTS
 			// Values
-			var successmessage = "Thank you for email, i will contact you soon, if did not any response with in a week please feel free to call me";
-			var failedmessage = "There was a problem, please try again!";
-			var usersname = $('#name');
-			var usersemail = $('#email');
-			var usersphone = $('#phone');			
-			var userscomment = $('#comment');
-			var usershuman = $('#human');
-			var isvalid = 1;
+			var successMessage = "Thank you for email, i will contact you soon, if did not any response with in a week please feel free to call me";
+			var failedMessage = "There was a problem, please try again!";
+			var usersName = $('#name');
+			var usersEmail = $('#email');
+			var usersPhone = $('#phone');
+			var usersComment = $('#comment');
+			var usersHuman = $('#human');
+			var isValid = 1;
 			var url = "slickform.php";
 			
 			//Checking information is correct before sending data
 			
 			
 			//CHECKING EMAIL IS PRESENT AND IS VALID
-			if (usersemail.val() == "") {
+			if (usersEmail.val() == "") {
 				$(".slickbutton").animate({marginTop:'50px'},1000).delay(6000).animate({marginTop:'0px'},1000);
 				$(".errorcontainer").html('Please Insert Your Email!');
 				$(".errorcontainer").delay(1200).fadeIn(1000).delay(4000).fadeOut(1000);
@@ -34,7 +34,7 @@ $(document).ready(function(){
 				return false;
 			}
 			
-			var valid = emailReg.test(usersemail.val());
+			var valid = emailReg.test(usersEmail.val());
 			
 			if(!valid) {
 				$(".slickbutton").animate({marginTop:'50px'},1000).delay(6000).animate({marginTop:'0px'},1000);
@@ -47,7 +47,7 @@ $(document).ready(function(){
 			
 			
 			//CHECKING USERS NAME IS PRESENT
-			if (usersname.val() == "") {
+			if (usersName.val() == "") {
 				$(".slickbutton").animate({marginTop:'50px'},1000).delay(6000).animate({marginTop:'0px'},1000);
 				$(".errorcontainer").html('Please Insert Your Name!');
 				$(".errorcontainer").delay(1200).fadeIn(1000).delay(4000).fadeOut(1000);
@@ -57,7 +57,7 @@ $(document).ready(function(){
 			//CHECKING USERS NAME IS PRESENT
 			
 			//CHECKING USERS PHONE NUMBER IS PRESENT AND IS ONLY NUMERIC
-			if (usersphone.val() == "") {
+			if (usersPhone.val() == "") {
 				$(".slickbutton").animate({marginTop:'50px'},1000).delay(6000).animate({marginTop:'0px'},1000);
 				$(".errorcontainer").html('Please Insert Your Phone Number!');
 				$(".errorcontainer").delay(1200).fadeIn(1000).delay(4000).fadeOut(1000);
@@ -65,7 +65,7 @@ $(document).ready(function(){
 				return false;
 			}
 			
-			var EnteredValue = $.trim(usersphone.val());
+			var EnteredValue = $.trim(usersPhone.val());
 			var TestValue = EnteredValue.replace(" ", "");
 			 if (isNaN(TestValue)) {
 				$(".slickbutton").animate({marginTop:'50px'},1000).delay(6000).animate({marginTop:'0px'},1000);
@@ -78,7 +78,7 @@ $(document).ready(function(){
 			
 			
 			//CHECKING THE USER IS HUMAN
-			if (usershuman.val() != 15) {
+			if (usersHuman.val() != 15) {
 				$(".slickbutton").animate({marginTop:'50px'},1000).delay(6000).animate({marginTop:'0px'},1000);
 				$(".errorcontainer").html('Math Is Incorrect!');
 				$(".errorcontainer").delay(1200).fadeIn(1000).delay(4000).fadeOut(1000);
@@ -88,7 +88,7 @@ $(document).ready(function(){
 			//CHECKING THE USER IS HUMAN
 			
 			//CHECKING THE USER IS HUMAN
-			if (userscomment.val() == "") {
+			if (usersComment.val() == "") {
 				$(".slickbutton").animate({marginTop:'50px'},1000).delay(6000).animate({marginTop:'0px'},1000);
 				$(".errorcontainer").html('You Forgot To Leave A Message!');
 				$(".errorcontainer").delay(1200).fadeIn(1000).delay(4000).fadeOut(1000);
@@ -104,12 +104,12 @@ $(document).ready(function(){
 			 *
 			*/
 			
-			$.post(url,{ usersname: usersname.val(), usersemail: usersemail.val(), usersphone: usersphone.val(), userscomment: userscomment.val(), usershuman: usershuman.val(), isvalid: isvalid } , function(data) {
+			$.post(url,{ usersName: usersName.val(), usersEmail: usersEmail.val(), usersPhone: usersPhone.val(), usersComment: usersComment.val(), usersHuman: usersHuman.val(), isValid: isValid } , function(data) {
 				
 				if(data == 'success'){
 					
 					$(".slickbutton").animate({marginTop:'50px'},1000).delay(6000).animate({marginTop:'0px'},1000);
-					$(".successcontainer").html(successmessage);
+					$(".successcontainer").html(successMessage);
 					$(".successcontainer").delay(1200).fadeIn(1000).delay(4000).fadeOut(1000);
 					$("#name").val('');
 					$("#email").val('');
@@ -121,7 +121,7 @@ $(document).ready(function(){
 				} else {
 					
 					$(".slickbutton").animate({marginTop:'50px'},1000).delay(6000).animate({marginTop:'0px'},1000);
-					$(".errorcontainer").html(failedmessage);
+					$(".errorcontainer").html(failedMessage);
 					$(".errorcontainer").delay(1200).fadeIn(1000).delay(4000).fadeOut(1000);
 					$('input[type=submit]', $("#slickform")).removeAttr('disabled');
 					return false;
