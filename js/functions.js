@@ -1,21 +1,20 @@
 // PARALLAX EFFECT
 function EasyPeasyParallax() {
-	scrollPos = $(this).scrollTop();
-	$('#section-1').css({
-		'background-position' : '50% ' + (-scrollPos/4)+"px"
-	});
-	$('#title-1').css({		
-		'opacity': 1-(scrollPos/450)
-	});
+    scrollPos = $(this).scrollTop();
+    $('#section-1').css({
+        'background-position': '50% ' + -scrollPos / 4 + 'px'
+    });
+    $('#title-1').css({
+        opacity: 1 - scrollPos / 450
+    });
 }
-$(document).ready(function(){
-	$(window).scroll(function() {
-		EasyPeasyParallax();
-	});
+$(document).ready(function() {
+    $(window).scroll(function() {
+        EasyPeasyParallax();
+    });
 });
 // STICKY NAV
 $(window).scroll(function() {
-
     if ($(window).scrollTop() > 100) {
         $('.main_h').addClass('sticky');
     } else {
@@ -39,20 +38,26 @@ $('.main_h li a').click(function() {
     }
 });
 
- // SMOTH SCROLL
+// SMOTH SCROLL
 $(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1200);
-        return false;
-      }
-    }
-  });
+    $('a[href*=#]:not([href=#])').click(function() {
+        if (
+            location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
+            location.hostname == this.hostname
+        ) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html,body').animate(
+                    {
+                        scrollTop: target.offset().top
+                    },
+                    1200
+                );
+                return false;
+            }
+        }
+    });
 });
 
 // MAKE SELECTED ELEMENTS THE SAME HEIGHT
@@ -79,53 +84,48 @@ $(function() {
 });
 
 // animation wow js
-var wow = new WOW(
-  {
-    boxClass:     'wow',      // animated element css class (default is wow)
+var wow = new WOW({
+    boxClass: 'wow', // animated element css class (default is wow)
     animateClass: 'animated', // animation css class (default is animated)
-    offset:       200,          // distance to the element when triggering the animation (default is 0)
-    mobile:       true,       // trigger animations on mobile devices (default is true)
-    live:         true,       // act on asynchronously loaded content (default is true)
-    callback:     function(box) {
-      // the callback is fired every time an animation is started
-      // the argument that is passed in is the DOM node being animated
+    offset: 200, // distance to the element when triggering the animation (default is 0)
+    mobile: true, // trigger animations on mobile devices (default is true)
+    live: true, // act on asynchronously loaded content (default is true)
+    callback: function(box) {
+        // the callback is fired every time an animation is started
+        // the argument that is passed in is the DOM node being animated
     },
     scrollContainer: null // optional scroll container selector, otherwise use window
-  }
-);
+});
 wow.init();
 
-
 // ANIMISTION
-  $(document).ready(function() {
-    $('.animsition-overlay').animsition({
-      inClass: 'overlay-slide-in-bottom',
-      outClass: 'overlay-slide-out-top',
-      overlay : true,
-      overlayClass : 'animsition-overlay-slide',
-      overlayParentElement : 'body'
-    })
-    .one('animsition.inStart',function(){
+$(document).ready(function() {
+    $('.animsition-overlay')
+        .animsition({
+            inClass: 'overlay-slide-in-bottom',
+            outClass: 'overlay-slide-out-top',
+            overlay: true,
+            overlayClass: 'animsition-overlay-slide',
+            overlayParentElement: 'body'
+        })
+        .one('animsition.inStart', function() {
+            $('body').removeClass('bg-init');
 
-      $('body').removeClass('bg-init');
+            $(this)
+                .find('.item')
+                .append('<h2 class="target">Callback: Start</h2>');
 
-      $(this)
-        .find('.item')
-        .append('<h2 class="target">Callback: Start</h2>');
-
-      console.log('event -> inStart');
-    })
-    .one('animsition.inEnd',function(){
-      $('.target', this).html('Callback: End');
-      console.log('event -> inEnd');
-    })
-    .one('animsition.outStart',function(){
-      console.log('event -> outStart');
-    })
-    .one('animsition.outEnd',function(){
-      $('.target', this).html('Callback: End');
-      console.log('event -> outEnd');
-    });
-
-  });
-
+            console.log('event -> inStart');
+        })
+        .one('animsition.inEnd', function() {
+            $('.target', this).html('Callback: End');
+            console.log('event -> inEnd');
+        })
+        .one('animsition.outStart', function() {
+            console.log('event -> outStart');
+        })
+        .one('animsition.outEnd', function() {
+            $('.target', this).html('Callback: End');
+            console.log('event -> outEnd');
+        });
+});
