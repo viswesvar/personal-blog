@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/viswesvar/personal-blog#readme",
   "devDependencies": {
-    "localhost": "^0.2.3"
+    "localhost": "^0.4.1"
   },
   "dependencies": {}
 }
